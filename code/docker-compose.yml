@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  biochar-advisor:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: smart-biochar-advisor
+    ports:
+      - "8501:8501"
+    volumes:
+      # Mount code for development (hot reload)
+      - .:/app
+      # Persist data and models
+      - ./data:/app/data
+      - ./logs:/app/logs
+    environment:
+      - ENVIRONMENT=development
+      - PYTHONPATH=/app
+    restart: unless-stopped
+    networks:
+      - biochar-network
+
+  # Optional: Database service (for future use)
+  # db:
+  #   image: postgres:15-alpine
+  #   container_name: biochar-db
+  #   environment:
+  #     POSTGRES_DB: biochar_advisor
+  #     POSTGRES_USER: biochar_user
+  #     POSTGRES_PASSWORD: biochar_pass
+  #   ports:
+  #     - "5432:5432"
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
+  #   networks:
+  #     - biochar-network
+
+networks:
+  biochar-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
