@@ -120,6 +120,31 @@ Higher biochar content improves nutrient retention and reduces leaching. The AI 
 3. Make changes with tests
 4. Submit a pull request
 
+## Deployment
+
+### Free Deployment Options
+
+#### Streamlit Community Cloud (Recommended)
+
+1. Go to https://share.streamlit.io/
+2. Sign in with GitHub
+3. Click "New app"
+4. Configure:
+   - Repository: `Ghanim-Marzouqi/smart-biochar-advisor`
+   - Branch: `main`
+   - Main file path: `code/app/main.py`
+5. Click "Deploy"
+
+The model will be trained automatically on first run.
+
+**Your app URL will be**: `https://[your-app-name].streamlit.app`
+
+#### Alternative Options
+
+- **Hugging Face Spaces**: https://huggingface.co/spaces
+- **Render**: https://render.com (free tier)
+- **Railway**: https://railway.app (free tier with limits)
+
 ## License
 
 MIT License

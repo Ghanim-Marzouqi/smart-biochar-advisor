@@ -51,10 +51,11 @@ ENV/
 .env
 .env.local
 
-# ML Models (comment out if you want to track them)
+# ML Models and Training Outputs (generated files)
 *.pkl
 *.joblib
 *.h5
+code/models/trained/training_report.json
 
 # Logs
 *.log
