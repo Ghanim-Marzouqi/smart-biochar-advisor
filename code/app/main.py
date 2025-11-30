@@ -66,23 +66,35 @@ def load_model():
         predictor = BiocharPredictor()
         return predictor
     except FileNotFoundError:
-        st.error("""
-        ⚠️ **Model not found!**
+        st.warning("⚠️ Model not found. Training model now (this will take ~1 minute)...")
 
-        The ML model has not been trained yet. Please run the training script:
+        # Try to train the model automatically
+        try:
+            from models.train_model import train_all_models
+            with st.spinner("🤖 Training ML model..."):
+                train_all_models()
+            st.success("✅ Model trained successfully! Reloading page...")
+            st.rerun()
+        except Exception as e:
+            st.error(f"""
+            ⚠️ **Could not auto-train model**
 
-        ```bash
-        cd code
-        python models/train_model.py
-        ```
+            Error: {str(e)}
 
-        Or using Docker:
-        ```bash
-        cd code
-        docker-compose run biochar-advisor python models/train_model.py
-        ```
-        """)
-        st.stop()
+            Please run the training script manually:
+
+            ```bash
+            cd code
+            python models/train_model.py
+            ```
+
+            Or using Docker:
+            ```bash
+            cd code
+            docker-compose run biochar-advisor python models/train_model.py
+            ```
+            """)
+            st.stop()
 
 
 def render_header():
