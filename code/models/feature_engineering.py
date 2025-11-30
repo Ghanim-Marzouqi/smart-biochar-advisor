@@ -138,9 +138,12 @@ class FeatureEngineer:
         # Handle any missing values
         X = X.fillna(0)
 
-        self.feature_names = feature_cols
+        # Ensure all columns are numeric (drop any non-numeric columns)
+        X = X.select_dtypes(include=[np.number])
 
-        return X, feature_cols
+        self.feature_names = list(X.columns)
+
+        return X, list(X.columns)
 
     def fit(self, X: pd.DataFrame) -> 'FeatureEngineer':
         """
