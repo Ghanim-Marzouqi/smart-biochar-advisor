@@ -1,0 +1,23 @@
+# Smart Biochar Advisor - Python Dependencies
+# Compatible with Streamlit Cloud
+
+# Core Framework
+streamlit>=1.28.0
+
+# Machine Learning
+scikit-learn>=1.3.0
+joblib>=1.3.0
+
+# Data Processing
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Visualization (required for enhanced UI)
+plotly>=5.17.0
+
+# Optional dependencies (commented out to reduce deployment time)
+# matplotlib>=3.7.0
+# seaborn>=0.12.0
+# sqlalchemy>=2.0.0
+# python-dotenv>=1.0.0
+# reportlab>=4.0.0
