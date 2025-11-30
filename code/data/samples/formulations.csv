@@ -1,0 +1,5 @@
+formulation_id,biochar_g,npk_g,total_amendment_g,biochar_ratio,npk_ratio,description
+S1,5.0,5.0,10.0,0.5,0.5,Baseline formulation - light, uniform mixture
+S2,10.0,10.0,20.0,0.5,0.5,Balanced formulation - denser, cohesive
+S3,10.0,15.0,25.0,0.4,0.6,High NPK formulation - nutrient-rich, granular
+S4,15.0,10.0,25.0,0.6,0.4,High biochar formulation - darker, carbon-dense
